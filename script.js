@@ -63,6 +63,7 @@ function displayLogin() {
   };
   Users.push(data_user);
   console.log(Users);
+
   localStorage.setItem("storageArray", JSON.stringify(Users));
   loginContainer.style.display = "block";
   signupContainer.style.display = "none";
