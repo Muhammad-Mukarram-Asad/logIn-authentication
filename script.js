@@ -203,6 +203,14 @@ function removeFriend() {
 }
 
 function addthese(event) {
+  var loginEmail = document.getElementById("email_loginId");
+  var loginPassword = document.getElementById("psw_loginId");
+  for (var i = 0; i < user_storage_array.length; i++) {
+    if (
+      (user_storage_array[i].email == loginEmail.value) &&
+      (user_storage_array[i].password == loginPassword.value)
+    )
+    {
   var m = event.target;
   // var name_text = document.getElementById("label_text").innerHTML;
 
@@ -210,7 +218,8 @@ function addthese(event) {
   // console.log(m);
 
   console.log(" Add friend name is --> " + ans);
-  var n = data_user.name;
+  var n = user_storage_array[i].name;
+    }
   for (var i = 0; i < Users.length; i++) {
     if (n == Users[i].name) {
       Users[i].friends.push(ans);
@@ -227,7 +236,7 @@ function removethese(event) {
   var ans = m.parentElement.children[0].innerHTML;
 
   console.log(" remove friend name was --> " + ans);
-  var n = data_user.name;
+  var n = user_storage_array[i].name;
   for (var i = 0; i < Users.length; i++) {
     if (n == Users[i].name) {
       var index_of_friend = Users[i].friends.indexOf(ans);
